@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymelaaf.org" th:replace="normal/userbase:: layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	
+   <section>
+	  <div class="card-body bg-white me-5 ms-5">
+		 <h2 class="text-center pb-2">Update_Contact</h2>
+		  <div class="container-fluid mt-1">
+			<div class="row">
+				<div class="col-md-10 offset-md-1">
+					
+					<form class="form" action="#"
+					 method="post" 
+					 enctype="multipart/form-data"
+					 th:action="@{/user/update-contect}"
+					 th:object="${contact}"
+					 >
+					 
+					 <input type="hidden" th:value="${contact.cId}" name="cId">
+					 				
+    				<div class="input-group pb-3">
+    					  <div class="input-group-text"><i class="fa fa-plus"></i> </div>
+    						  <input type="text" class="form-control" 
+    						  id="autoSizingInputGroup" required="required"
+    						  placeholder="Enter name here..."
+    						  name="name"
+    						  th:value="${contact.name}"
+    						  >
+    		   		</div>
+					
+					
+					<div class="input-group pb-3">
+    					  <div class="input-group-text"><i class="fas fa-user-alt"></i> </div>
+    						  <input type="text" class="form-control" 
+    						  id="autoSizingInputGroup" required="required"
+    						  placeholder="Enter second name here..."
+    						  name="secondName" 
+    						  th:value="${contact.secondName}"
+    						  >
+    		   		 </div>
+					
+					
+					<div class="input-group pb-3">
+    					  <div class="input-group-text"><i class="fa fa-briefcase"></i> </div>
+    						  <input type="text" class="form-control" 
+    						  id="autoSizingInputGroup"  required="required"
+    						  placeholder="Enter Work here..."
+    						  name="work"
+    						  th:value="${contact.work}"
+    						  >
+    		   		</div>
+						
+					<div class="input-group pb-3">
+    					  <div class="input-group-text"><i class="">@</i> </div>
+    						  <input type="email" class="form-control" 
+    						  id="autoSizingInputGroup"  required="required"
+    						  placeholder="Enter email here..."
+    						  name="email"
+    						  th:value="${contact.email}"
+    						  >
+    		   		</div>
+					
+					
+					<div class="input-group pb-3">
+    					  <div class="input-group-text"><i class="fa fa-phone"></i> </div>
+    						  <input type="number" class="form-control" 
+    						  id="autoSizingInputGroup"  required="required"
+    						  placeholder="Enter Numbar here..."
+    						  name="phone"
+    						  th:value="${contact.phone}"
+    						  >
+    		   		</div>
+    		   		
+    		   		<div class="input-group pb-3">
+	    							<textarea id="mytextarea" style="width: 100%" rows="10" class="form-control" placeholder="Enter contect descriptioin" 
+    							name="description" th:text="${contact.description}"></textarea>  
+    						
+    		   		</div>		
+					
+					
+					<div class="container pb-3 text-center">
+						
+						<img class="profile_picture" style="width: 200px; height: 200px" th:src="@{'/image/'+${contact.image}}" alt="sorry">
+						
+					</div>
+					
+					<p class="text-secondary text-center">Chose a new Profile photo</p>
+					<div class="custom-file text-center pb-3">
+						<input type="file" name="image">
+					</div>
+					
+					<div class="container text-center">
+						<button class="btn btn-primary">Save Contact</button>
+					</div>								
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+		tinymce.init({
+			selector: '#mytextarea'
+		});		
+    
+    </script>
+	</section>
+	
+</body>
+</html>
